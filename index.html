@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#104b38">
+<title>بوابة علوم الإنسان | جامعة تيسمسيلت</title>
+<style>
+:root{--green:#104b38;--green2:#1d6b50;--gold:#d6b35c;--paper:#f4f7f4;--ink:#18352b;--muted:#63756b;--line:#e1e9e3}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,Arial,sans-serif}
+header{background:var(--green);color:white;padding:12px clamp(14px,4vw,55px);display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;box-shadow:0 4px 18px #102e221c}
+.brand{display:flex;align-items:center;gap:12px}.brand img{width:62px;height:62px;border-radius:50%;object-fit:contain;background:#fff;padding:3px}.brand h1{font-size:clamp(17px,2.2vw,23px);margin:0}.brand p{margin:5px 0 0;color:#e9dfbd;font-size:13px}
+nav{display:flex;gap:7px;flex-wrap:wrap}nav button{border:1px solid #477763;background:transparent;color:#fff;padding:10px 12px;border-radius:10px;cursor:pointer;font:inherit;font-size:13px}nav button:hover,nav button.active{background:var(--gold);color:#183b2e;border-color:var(--gold)}
+.hero{position:relative;min-height:310px;background:linear-gradient(90deg,rgba(8,49,36,.92),rgba(8,49,36,.38)),url('campus.jpg') center 48%/cover;display:flex;align-items:center;color:white;padding:35px clamp(18px,7vw,90px)}
+.hero-inner{max-width:700px}.eyebrow{color:#f1d783;font-weight:bold;letter-spacing:.2px}.hero h2{font-size:clamp(28px,4vw,45px);line-height:1.4;margin:8px 0}.hero p{font-size:16px;line-height:2;max-width:650px;color:#f2f5f2}
+button{font-family:inherit}.btn{border:0;border-radius:10px;padding:11px 15px;cursor:pointer;font-weight:bold}.btn-primary{background:var(--green);color:#fff}.btn-gold{background:var(--gold);color:#173d2e}.btn-light{background:#e7efe9;color:var(--green)}.btn:hover{filter:brightness(.97)}
+main{max-width:1200px;margin:26px auto;padding:0 16px}.section{display:none}.section.active{display:block}.section-title{margin:0 0 6px;font-size:25px}.intro{margin:0 0 18px;color:var(--muted);line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:17px;padding:20px;box-shadow:0 8px 24px #173d3008}.tile{cursor:pointer;transition:transform .18s,border-color .18s}.tile:hover{transform:translateY(-3px);border-color:var(--gold)}.tile .icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#e6efe8;font-size:24px;margin-bottom:12px}.tile h3{margin:0 0 7px}.tile p{margin:0;color:var(--muted);line-height:1.8;font-size:14px}
+.year-card{display:flex;align-items:center;gap:15px;min-height:120px;background:linear-gradient(110deg,#fff,#edf4ee);border-right:4px solid var(--gold)}.year-card .icon{font-size:28px}
+label{display:block;font-weight:bold;margin:11px 0 6px;font-size:14px}input,textarea,select{width:100%;border:1px solid #cad8ce;border-radius:10px;padding:11px 12px;font:inherit;background:white;color:var(--ink)}textarea{min-height:100px;resize:vertical}.row{display:flex;gap:12px;flex-wrap:wrap}.row>*{flex:1;min-width:180px}
+.notice{background:#fff5d9;color:#6b5112;border:1px solid #efdfaa;border-radius:11px;padding:12px;line-height:1.8}.muted{color:var(--muted);font-size:14px;line-height:1.8}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:12px;margin-top:14px}table{border-collapse:collapse;width:100%;min-width:570px;background:white}th,td{border-bottom:1px solid var(--line);padding:12px;text-align:center}th{background:#e8f0ea;color:var(--green)}.contentitem{border-bottom:1px solid var(--line);padding:14px 0;line-height:1.8}.contentitem:last-child{border-bottom:0}.contentitem h4{margin:0}.small{font-size:12px;color:var(--muted)}hr{border:0;border-top:1px solid var(--line);margin:24px 0}
+#loginBox{max-width:470px;margin:0 auto}.panel{margin-top:16px}.hidden{display:none!important}.danger{color:#b42318}.student-banner{background:#e8f1e9;border-radius:12px;padding:14px;line-height:1.9}
+canvas{max-width:100%;touch-action:none}#chess{display:grid;grid-template-columns:repeat(8,1fr);max-width:320px;margin:12px auto;border:3px solid #254638;border-radius:4px;overflow:hidden}
+footer{margin-top:35px;background:var(--green);color:#edf4ef;padding:22px;text-align:center;font-size:13px}footer span{color:#e4cb7b}
+@media(max-width:700px){header{align-items:flex-start}.brand img{width:52px;height:52px}nav button{padding:8px 9px}.hero{min-height:270px}.hero p{font-size:14px}.card{padding:16px}}
+
+/* Homepage visual refresh inspired by the supplied reference */
+.site-header{background:#fff;color:#164a39;padding:13px clamp(14px,4vw,42px);min-height:94px;box-shadow:0 4px 22px #102e2210;position:relative;z-index:10}
+.site-header .brand{margin-right:auto}.site-header .brand img{width:72px;height:72px;order:2;border-radius:50%;padding:0;background:#fff;object-fit:contain}
+.site-header .brand h1{font-size:clamp(15px,2vw,22px);color:#14533e}.site-header .brand p{color:#748078;font-size:12px}
+.site-header nav{display:none;position:absolute;top:100%;left:14px;right:14px;background:#fff;border:1px solid var(--line);box-shadow:0 12px 30px #12382a18;border-radius:15px;padding:12px;flex-direction:column;gap:7px}
+.site-header nav.open{display:flex}.site-header nav button{color:var(--green);border-color:#dce7df;text-align:right;padding:12px 15px}.site-header nav button:hover,.site-header nav button.active{background:var(--gold);color:#183b2e}
+.menu-toggle{border:0;background:#f0f4f2;color:#2d8ad6;width:54px;height:54px;border-radius:17px;font-size:25px;cursor:pointer;order:0}
+.site-header .brand{order:2}.menu-toggle{order:0}
+.hero{min-height:calc(100svh - 94px);background:linear-gradient(90deg,rgba(0,47,40,.82),rgba(0,65,56,.42)),url('campus.jpg') center center/cover;position:relative;padding:55px clamp(22px,7vw,95px) 110px;align-items:center}
+.hero-inner{width:100%;max-width:760px;margin-right:auto;text-align:right}.hero .eyebrow{font-size:clamp(12px,1.7vw,16px);letter-spacing:3px;color:#f0d36c;font-weight:800;margin-bottom:30px}
+.hero h2{font-size:clamp(36px,6vw,66px);line-height:1.45;margin:0 0 20px;font-weight:900}.hero h2 span{color:#f0d36c}.hero p{font-size:clamp(15px,2vw,20px);line-height:2;color:#f5f7f5;max-width:680px;margin:0 0 28px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}.hero-actions .btn{font-size:clamp(14px,1.8vw,19px);padding:18px 27px;min-width:190px}.btn-gold{background:#d9b650;color:#173e31}.btn-outline{border:1px solid #c8d9d1;background:#ffffff12;color:#fff}
+.hero-scroll{position:absolute;bottom:0;right:0;left:0;background:linear-gradient(0deg,rgba(0,61,44,.98),rgba(0,61,44,.80));color:#e6d18a;text-align:center;padding:22px;font-size:14px;letter-spacing:1px}.hero-scroll span{display:block;font-size:24px;margin-top:5px}
+main{max-width:1200px;margin:0 auto;padding:48px 18px}.home-heading{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:25px}.eyebrow.dark{color:#b99532;letter-spacing:1px}.home-heading .section-title{font-size:clamp(26px,4vw,40px);margin:8px 0}.home-heading .intro{margin:0}.home-number{font-size:42px;font-weight:900;color:#c6a23e;text-align:center;min-width:105px}.home-number small{display:block;font-size:13px;color:#829087;font-weight:normal;margin-top:12px}
+.year-card{min-height:150px;border:1px solid #dce7df;border-right:7px solid #d6b35c;border-radius:28px;background:linear-gradient(110deg,#fff,#edf3ef);padding:25px 30px}
+.card{box-shadow:0 10px 30px #173d3007}.tile:hover{box-shadow:0 14px 30px #173d3010}
+@media(min-width:900px){.site-header{display:flex}.site-header nav{display:flex;position:static;flex-direction:row;background:transparent;border:0;box-shadow:none;padding:0;margin-right:auto;width:auto}.site-header nav button{text-align:center}.menu-toggle{display:none}.site-header .brand{order:2}.site-header nav{order:1}}
+@media(max-width:600px){.site-header{min-height:88px;padding:10px 16px}.site-header .brand img{width:62px;height:62px}.menu-toggle{width:48px;height:48px}.hero{min-height:calc(100svh - 88px);padding:40px 22px 120px;background-position:54% center}.hero .eyebrow{margin-bottom:24px}.hero h2{line-height:1.5}.hero-actions{gap:10px}.hero-actions .btn{min-width:0;flex:1;padding:15px 10px}.home-heading{align-items:flex-start}.home-number{min-width:65px;font-size:34px}.year-card{border-radius:24px;padding:20px}.grid{grid-template-columns:1fr}}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+ <div class="brand"><img src="logo.jpg" alt="شعار جامعة تيسمسيلت"><div><h1>علوم الإعلام والاتصال</h1><p>جامعة تيسمسيلت</p></div></div>
+ <button class="menu-toggle" id="menuToggle" aria-label="فتح القائمة" onclick="toggleMenu()">☰</button>
+ <nav id="mainNav" aria-label="التنقل الرئيسي">
+  <button class="active" data-go="home">الرئيسية</button><button data-go="schedule">التوقيت</button><button data-go="lessons">الدروس والمحاضرات</button><button data-go="sources">المراجع</button><button data-go="games">الألعاب والثقافة</button><button data-go="login">دخول</button>
+ </nav>
+</header>
+<section class="hero">
+ <div class="hero-inner">
+  <div class="eyebrow">MEDIA · COMMUNICATION · TISSEMSILT</div>
+  <h2>فضاء طلبة<br><span>الإعلام والاتصال</span></h2>
+  <p>منصة بسيطة وأنيقة تجمع المواد، الأساتذة، الجداول والموارد الخاصة بطلبة السنة الأولى والثانية.</p>
+  <div class="hero-actions"><button class="btn btn-gold" onclick="go('home')">استكشف السنوات</button><button class="btn btn-outline" onclick="go('games')">♟ استراحة ذكية</button></div>
+ </div>
+ <div class="hero-scroll">اكتشف فضاءك الجامعي <span>↓</span></div>
+</section>
+<main>
+<section id="home" class="section active">
+ <div class="home-heading"><div><span class="eyebrow dark">فضاؤك الدراسي</span><h2 class="section-title">ابدأ رحلتك الجامعية</h2><p class="intro">اختر السنة للوصول إلى التوقيت والمحاضرات والموارد المناسبة لك.</p></div><div class="home-number">01 <small>السنة الأولى</small></div></div>
+ <div class="grid">
+  <div class="card year-card tile" onclick="chooseYear('الأولى - علوم إنسانية','schedule')"><div class="icon">📘</div><div><h3>السنة الأولى</h3><p class="muted">علوم إنسانية</p></div></div>
+  <div class="card year-card tile" onclick="chooseYear('الثانية - علوم الإعلام والاتصال','schedule')"><div class="icon">📡</div><div><h3>السنة الثانية</h3><p class="muted">علوم الإعلام والاتصال</p></div></div>
+  <div class="card tile" onclick="go('lessons')"><div class="icon">📚</div><h3>الدروس والمحاضرات</h3><p>مساحة مخصصة للمحاضرات والملفات والروابط.</p></div>
+  <div class="card tile" onclick="go('sources')"><div class="icon">🔎</div><h3>المراجع والمصادر</h3><p>قائمة بالمصادر العلمية التي يضيفها الأدمن.</p></div>
+  <div class="card tile" onclick="go('games')"><div class="icon">♟️</div><h3>فضاء الترفيه</h3><p>ألعاب بسيطة وأسئلة ثقافية لطلبة التخصص.</p></div>
+  <div class="card tile" onclick="go('login')"><div class="icon">🛡️</div><h3>دخول آمن حسب الصلاحية</h3><p>واجهة خاصة للإدارة، وواجهة مشاهدة للطلبة.</p></div>
+ </div>
+ <div class="notice" style="margin-top:18px">ملاحظة: هذه نسخة واجهة أولية. قبل استخدامها فعليًا مع الطلبة، يجب ربطها بخادم وقاعدة بيانات وصلاحيات آمنة حتى تظهر التعديلات للجميع.</div>
+</section>
+<section id="schedule" class="section"><h2 class="section-title">التوقيت الجامعي</h2><p class="intro">لكل سنة جدول مستقل. ستظهر هنا الجداول التي ينشرها الأدمن.</p><div class="card"><label for="scheduleYear">اختر السنة</label><select id="scheduleYear"><option>الأولى - علوم إنسانية</option><option>الثانية - علوم الإعلام والاتصال</option></select><div id="scheduleTable" class="tablewrap"></div></div></section>
+<section id="lessons" class="section"><h2 class="section-title">الدروس والمحاضرات</h2><p class="intro">المحتوى الذي ينشره الأدمن يظهر هنا للطلبة.</p><div class="card"><label for="lessonYear">السنة الدراسية</label><select id="lessonYear"><option>الأولى - علوم إنسانية</option><option>الثانية - علوم الإعلام والاتصال</option></select><div id="lessonList"></div></div></section>
+<section id="sources" class="section"><h2 class="section-title">المراجع والمصادر</h2><p class="intro">مكتبة أكاديمية قابلة للتوسيع من لوحة الإدارة.</p><div class="card"><div id="sourceList"></div></div></section>
+<section id="games" class="section"><h2 class="section-title">فضاء الترفيه والثقافة</h2><p class="intro">استراحة مفيدة بين جلسات الدراسة.</p><div class="grid">
+ <div class="card"><h3>🐍 لعبة الدودة</h3><p class="muted">استخدم الأسهم أو الأزرار لتحريك الدودة.</p><canvas id="snake" width="300" height="300" style="width:300px;background:#102f25;border-radius:12px;display:block;margin:auto"></canvas><p>النقاط: <b id="score">0</b></p><div class="row"><button class="btn btn-primary" onclick="startSnake()">ابدأ / أعد اللعب</button><button class="btn btn-light" onclick="changeDirection(0,-1)">↑</button><button class="btn btn-light" onclick="changeDirection(0,1)">↓</button><button class="btn btn-light" onclick="changeDirection(-1,0)">←</button><button class="btn btn-light" onclick="changeDirection(1,0)">→</button></div></div>
+ <div class="card"><h3>♟️ الشطرنج</h3><p class="muted">لعب محلي بسيط بالتناوب بين اللاعبين. هذه نسخة أولية ولا تتحقق من جميع قواعد النقل القانونية.</p><div id="chess"></div><button class="btn btn-primary" onclick="resetChess()">إعادة الشطرنج</button></div>
+ <div class="card"><h3>🧠 أسئلة ثقافية</h3><p id="quizQ">حمّل سؤالًا للبدء.</p><div id="quizChoices"></div><p id="quizResult" aria-live="polite"></p><button class="btn btn-primary" onclick="nextQuiz()">السؤال التالي</button><p class="muted">تضاف الأسئلة من لوحة الأدمن في النسخة التجريبية.</p></div>
+ </div></section>
+<section id="login" class="section"><h2 class="section-title">تسجيل الدخول</h2><p class="intro">الأدمن وحده يملك صلاحيات تعديل المحتوى. حسابات الطلبة مخصصة للمشاهدة.</p>
+ <div class="card" id="loginBox"><h3>🔐 الدخول إلى البوابة</h3><label for="userId">معرّف الدخول</label><input id="userId" autocomplete="username" placeholder="رقم الطالب أو معرّف الأدمن"><label for="userPass">كلمة السر</label><input id="userPass" type="password" autocomplete="current-password" placeholder="أدخل كلمة السر"><button class="btn btn-primary" style="width:100%;margin-top:14px" onclick="login()">دخول</button><p id="loginError" class="danger" aria-live="polite"></p><p class="small">بيانات الدخول في هذه النسخة تجريبية ومحفوظة على الجهاز فقط؛ لا تستخدمها لحسابات حقيقية.</p></div>
+ <div class="card hidden panel" id="studentPanel"><div class="student-banner"><h3>مرحبًا <span id="studentName"></span></h3><div>السنة الدراسية: <b id="studentYear"></b></div><div>عدد الغيابات المسجلة: <b id="studentAbsences">0</b></div></div><p class="muted">يمكنك مشاهدة المحتوى المنشور، ولا تملك صلاحية تعديله.</p><button class="btn btn-light" onclick="logout()">تسجيل الخروج</button></div>
+ <div class="card hidden panel" id="adminPanel"><h3>🛡️ لوحة الإدارة</h3><p class="notice">هذه لوحة تجريبية. في النسخة النهائية ستكون صلاحيات الأدمن محمية على الخادم، ولن يستطيع الطالب تعديل البيانات حتى لو حاول تجاوز الواجهة.</p>
+ <hr><h3>إدارة حسابات الطلبة والغيابات</h3><div class="row"><div><label>معرّف الطالب</label><input id="newId"></div><div><label>كلمة السر</label><input id="newPass" type="password"></div></div><label>اسم الطالب</label><input id="newName"><label>السنة</label><select id="newYear"><option>الأولى - علوم إنسانية</option><option>الثانية - علوم الإعلام والاتصال</option></select><label>عدد الغيابات</label><input id="newAbs" type="number" min="0" value="0"><button class="btn btn-primary" style="margin-top:12px" onclick="saveStudent()">حفظ الطالب</button><div id="adminStudents"></div>
+ <hr><h3>تعديل التوقيت</h3><label>السنة</label><select id="editScheduleYear"><option>الأولى - علوم إنسانية</option><option>الثانية - علوم الإعلام والاتصال</option></select><label>اكتب سطرًا لكل حصة بالصيغة: اليوم | الوقت | المادة | القاعة</label><textarea id="editSchedule" placeholder="الأحد | 08:00-09:30 | مدخل إلى العلوم الإنسانية | القاعة 4"></textarea><button class="btn btn-primary" style="margin-top:10px" onclick="saveSchedule()">نشر التوقيت</button>
+ <hr><h3>إضافة درس أو محاضرة أو مرجع</h3><label>نوع المحتوى</label><select id="itemType"><option value="lesson">درس / محاضرة</option><option value="source">مرجع / مصدر</option></select><label>السنة</label><select id="itemYear"><option>الأولى - علوم إنسانية</option><option>الثانية - علوم الإعلام والاتصال</option></select><label>العنوان</label><input id="itemTitle"><label>وصف أو رابط الملف</label><textarea id="itemDetails"></textarea><button class="btn btn-primary" style="margin-top:10px" onclick="addItem()">إضافة المحتوى</button>
+ <hr><h3>إضافة سؤال ثقافي</h3><label>السؤال</label><input id="qText"><div class="row"><div><label>الإجابة الصحيحة</label><input id="qCorrect"></div><div><label>إجابة أخرى</label><input id="qWrong"></div></div><button class="btn btn-primary" style="margin-top:10px" onclick="addQuestion()">إضافة السؤال</button><p class="small">كل ما تحفظه هنا في النسخة التجريبية يبقى على هذا المتصفح فقط، وليس متاحًا تلقائيًا لبقية الطلبة.</p><button class="btn btn-light" onclick="logout()">تسجيل الخروج</button>
+ </div>
+</section>
+</main>
+<footer><span>جامعة تيسمسيلت</span> · بوابة علوم الإنسان · تصميم تجريبي</footer>
+<script>
+const ADMIN_ID='admin';
+const ADMIN_PASS='ChangeMe-2026!';
+const YEARS=['الأولى - علوم إنسانية','الثانية - علوم الإعلام والاتصال'];
+let data={students:[],schedules:{},lessons:[],sources:[],questions:[
+{q:'ما العلم الذي يدرس وسائل الاتصال الجماهيري؟',correct:'علوم الإعلام والاتصال',wrong:'علم الآثار'},
+{q:'ما المقصود بالمصدر الأولي في البحث؟',correct:'مادة أصلية مرتبطة بالحدث أو موضوعه',wrong:'ملخص حديث فقط'},
+{q:'أي مما يلي أداة لجمع البيانات؟',correct:'المقابلة',wrong:'الفهرس وحده'}]};
+function loadData(){try{const saved=JSON.parse(localStorage.getItem('tissemsiltPortalV2'));if(saved)data={...data,...saved}}catch(e){}}
+function saveData(){localStorage.setItem('tissemsiltPortalV2',JSON.stringify(data))}
+function go(id){document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('active',b.dataset.go===id));if(id==='schedule')renderSchedule();if(id==='lessons')renderLessons();if(id==='sources')renderSources();if(id==='games')renderChess();if(id==='login')renderAdminStudents();window.scrollTo({top:0,behavior:'smooth'})}
+function toggleMenu(){document.getElementById('mainNav').classList.toggle('open')}
+document.querySelectorAll('nav button').forEach(b=>b.addEventListener('click',()=>{go(b.dataset.go);document.getElementById('mainNav').classList.remove('open')}));
+function chooseYear(y,section){document.getElementById('scheduleYear').value=y;document.getElementById('lessonYear').value=y;go(section)}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderSchedule(){let y=document.getElementById('scheduleYear').value;let rows=data.schedules[y]||[];document.getElementById('scheduleTable').innerHTML=rows.length?'<table><thead><tr><th>اليوم</th><th>الوقت</th><th>المادة</th><th>القاعة</th></tr></thead><tbody>'+rows.map(r=>'<tr>'+[0,1,2,3].map(i=>'<td>'+esc(r[i]||'—')+'</td>').join('')+'</tr>').join('')+'</tbody></table>':'<p class="muted" style="padding:12px">لم ينشر الأدمن توقيت هذه السنة بعد.</p>'}
+document.getElementById('scheduleYear').addEventListener('change',renderSchedule);
+function renderLessons(){const y=document.getElementById('lessonYear').value,arr=data.lessons.filter(x=>x.year===y);document.getElementById('lessonList').innerHTML=arr.length?arr.map(x=>'<div class="contentitem"><h4>'+esc(x.title)+'</h4><div>'+esc(x.details)+'</div><span class="small">'+esc(x.year)+'</span></div>').join(''):'<p class="muted">لا توجد دروس أو محاضرات منشورة لهذه السنة حاليًا.</p>'}
+document.getElementById('lessonYear').addEventListener('change',renderLessons);
+function renderSources(){document.getElementById('sourceList').innerHTML=data.sources.length?data.sources.map(x=>'<div class="contentitem"><h4>'+esc(x.title)+'</h4><div>'+esc(x.details)+'</div>'+(String(x.details).startsWith('http')?'<a href="'+esc(x.details)+'" target="_blank" rel="noopener">فتح المصدر</a>':'')+'</div>').join(''):'<p class="muted">لا توجد مراجع مضافة بعد.</p>'}
+function login(){const id=document.getElementById('userId').value.trim(),pass=document.getElementById('userPass').value;document.getElementById('loginError').textContent='';
+if(id===ADMIN_ID&&pass===ADMIN_PASS){document.getElementById('loginBox').classList.add('hidden');document.getElementById('studentPanel').classList.add('hidden');document.getElementById('adminPanel').classList.remove('hidden');renderAdminStudents();return}
+const s=data.students.find(x=>x.id===id&&x.pass===pass);if(!s){document.getElementById('loginError').textContent='رقم الطالب أو كلمة السر خطأ';return}
+document.getElementById('loginBox').classList.add('hidden');document.getElementById('adminPanel').classList.add('hidden');document.getElementById('studentPanel').classList.remove('hidden');document.getElementById('studentName').textContent=s.name;document.getElementById('studentYear').textContent=s.year;document.getElementById('studentAbsences').textContent=s.absences}
+function logout(){['loginBox'].forEach(id=>document.getElementById(id).classList.remove('hidden'));['studentPanel','adminPanel'].forEach(id=>document.getElementById(id).classList.add('hidden'));document.getElementById('userId').value='';document.getElementById('userPass').value=''}
+function saveStudent(){const id=document.getElementById('newId').value.trim(),pass=document.getElementById('newPass').value,name=document.getElementById('newName').value.trim();if(!id||!pass||!name){alert('يرجى إكمال بيانات الطالب');return}const s={id,pass,name,year:document.getElementById('newYear').value,absences:Math.max(0,Number(document.getElementById('newAbs').value)||0)};const i=data.students.findIndex(x=>x.id===id);if(i>=0)data.students[i]=s;else data.students.push(s);saveData();renderAdminStudents();alert('تم حفظ الطالب على هذا الجهاز')}
+function renderAdminStudents(){const el=document.getElementById('adminStudents');if(!el)return;el.innerHTML=data.students.length?data.students.map(s=>'<div class="contentitem"><b>'+esc(s.name)+'</b> — '+esc(s.id)+' · الغيابات: '+s.absences+' <button class="btn btn-light" onclick="editAbs('+JSON.stringify(s.id).replace(/"/g,'&quot;')+')">تعديل الغيابات</button> <button class="btn btn-light" onclick="deleteStudent('+JSON.stringify(s.id).replace(/"/g,'&quot;')+')">حذف</button></div>').join(''):'<p class="muted">لم تضف أي طالب بعد.</p>'}
+function editAbs(id){const s=data.students.find(x=>x.id===id);if(!s)return;const v=prompt('عدد الغيابات الجديد:',s.absences);if(v!==null&&v.trim()!==''&&Number(v)>=0){s.absences=Number(v);saveData();renderAdminStudents()}}
+function deleteStudent(id){if(confirm('هل تريد حذف حساب هذا الطالب؟')){data.students=data.students.filter(s=>s.id!==id);saveData();renderAdminStudents()}}
+function saveSchedule(){const y=document.getElementById('editScheduleYear').value;data.schedules[y]=document.getElementById('editSchedule').value.split('\n').map(line=>line.split('|').map(x=>x.trim())).filter(r=>r.length>=3&&r.some(Boolean));saveData();document.getElementById('scheduleYear').value=y;renderSchedule();alert('تم نشر التوقيت في هذا المتصفح')}
+function addItem(){const type=document.getElementById('itemType').value,y=document.getElementById('itemYear').value,title=document.getElementById('itemTitle').value.trim(),details=document.getElementById('itemDetails').value.trim();if(!title){alert('اكتب عنوان المحتوى');return}(type==='lesson'?data.lessons:data.sources).push({year:y,title,details});saveData();renderLessons();renderSources();document.getElementById('itemTitle').value='';document.getElementById('itemDetails').value='';alert('تمت إضافة المحتوى في هذا المتصفح')}
+function addQuestion(){const q=document.getElementById('qText').value.trim(),correct=document.getElementById('qCorrect').value.trim(),wrong=document.getElementById('qWrong').value.trim();if(!q||!correct||!wrong){alert('أكمل السؤال والإجابتين');return}data.questions.push({q,correct,wrong});saveData();['qText','qCorrect','qWrong'].forEach(id=>document.getElementById(id).value='');qi=-1;nextQuiz();alert('تمت إضافة السؤال')}
+let qi=-1;function nextQuiz(){if(!data.questions.length)return;qi=(qi+1)%data.questions.length;const q=data.questions[qi];document.getElementById('quizQ').textContent=q.q;const answers=[q.correct,q.wrong].sort(()=>Math.random()-.5);document.getElementById('quizChoices').innerHTML=answers.map(a=>'<button class="btn btn-light" style="margin:4px" data-answer="'+esc(a)+'">'+esc(a)+'</button>').join('');document.querySelectorAll('#quizChoices button').forEach(b=>b.onclick=()=>{document.getElementById('quizResult').textContent=b.dataset.answer===data.questions[qi].correct?'إجابة صحيحة! أحسنت.':'ليست الإجابة الصحيحة، حاول مجددًا.'})}
+const chessGlyph={r:'♜',n:'♞',b:'♝',q:'♛',k:'♚',p:'♟',R:'♖',N:'♘',B:'♗',Q:'♕',K:'♔',P:'♙'};let chessBoard=[],picked=null;
+function resetChess(){chessBoard=['rnbqkbnr','pppppppp','........','........','........','........','PPPPPPPP','RNBQKBNR'].map(r=>r.split(''));picked=null;renderChess()}
+function renderChess(){if(!chessBoard.length){resetChess();return}const el=document.getElementById('chess');el.innerHTML='';chessBoard.forEach((row,r)=>row.forEach((p,c)=>{const b=document.createElement('button');b.textContent=chessGlyph[p]||'';b.style.cssText='aspect-ratio:1;border:0;border-radius:0;padding:0;font-size:clamp(18px,4vw,28px);background:'+((r+c)%2?'#83a68f':'#f2e8d2')+';color:'+(p&&p===p.toUpperCase()?'#fff':'#172f25')+';text-shadow:0 1px 2px #555';if(picked&&picked[0]===r&&picked[1]===c)b.style.outline='3px solid #d6b35c';b.onclick=()=>{if(!picked){if(p!=='.')picked=[r,c]}else{chessBoard[r][c]=chessBoard[picked[0]][picked[1]];chessBoard[picked[0]][picked[1]]='.';picked=null}renderChess()};el.appendChild(b)}))}
+let snakeTimer=null,snake=[],food={x:9,y:8},direction={x:1,y:0},score=0;
+function startSnake(){clearInterval(snakeTimer);snake=[{x:5,y:5},{x:4,y:5},{x:3,y:5}];direction={x:1,y:0};score=0;placeFood();drawSnake();snakeTimer=setInterval(tickSnake,150)}
+function placeFood(){food={x:Math.floor(Math.random()*15),y:Math.floor(Math.random()*15)}}
+function drawSnake(){const ctx=document.getElementById('snake').getContext('2d');ctx.clearRect(0,0,300,300);ctx.fillStyle='#48b879';snake.forEach(s=>ctx.fillRect(s.x*20+2,s.y*20+2,16,16));ctx.fillStyle='#f1c75b';ctx.fillRect(food.x*20+3,food.y*20+3,14,14);document.getElementById('score').textContent=score}
+function tickSnake(){const h={x:snake[0].x+direction.x,y:snake[0].y+direction.y};if(h.x<0||h.x>=15||h.y<0||h.y>=15||snake.some(s=>s.x===h.x&&s.y===h.y)){clearInterval(snakeTimer);alert('انتهت اللعبة! مجموع نقاطك: '+score);return}snake.unshift(h);if(h.x===food.x&&h.y===food.y){score++;placeFood()}else snake.pop();drawSnake()}
+function changeDirection(x,y){if(!(x===-direction.x&&y===-direction.y))direction={x,y}}
+document.addEventListener('keydown',e=>{const m={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];if(m){changeDirection(m[0],m[1]);e.preventDefault()}});
+loadData();resetChess();nextQuiz();renderSchedule();renderLessons();renderSources();
+</script>
+</body></html>
